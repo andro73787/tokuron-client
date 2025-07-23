@@ -2,8 +2,26 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  
+  import { Router } from '@mateothegreat/svelte5-router';
+  import Register from "./routes/Register.svelte";
+  import Login from "./routes/Login.svelte";
+
+  const routes = [ 
+    {
+      name: 'register',
+      path: '/register',
+      component: Register
+    },
+    {
+      name: 'login',
+      path: '/login',
+      component: Login
+    }
+  ]; 
 </script>
 
+<Router {routes} />
 <main>
   <div>
     <a href="https://vite.dev" target="_blank" rel="noreferrer">
