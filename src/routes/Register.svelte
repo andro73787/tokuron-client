@@ -22,12 +22,12 @@
         email,
         password,
      });
-     goto("login");
+     goto("/login");
       } catch (error) { 
         errorMessage = "An unexpected error occurred"
       }
     }
-    $: formValid = email.lenght > 0 && password.legth > 0 && name.lenght > 0;
+    $: formValid = email.length t > 0 && password.length > 0 && name.length > 0;
   </script>
   <div class="auth-container">
     <form on:submit|preventDefault={register} class="auth-form">
