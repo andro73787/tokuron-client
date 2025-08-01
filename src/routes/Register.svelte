@@ -27,7 +27,7 @@
         errorMessage = "An unexpected error occurred"
       }
     }
-    $: formValid = email.length t > 0 && password.length > 0 && name.length > 0;
+    $: formValid = email.length > 0 && password.length > 0 && name.length > 0;
   </script>
   <div class="auth-container">
     <form on:submit|preventDefault={register} class="auth-form">
