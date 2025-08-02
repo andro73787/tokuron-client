@@ -16,6 +16,11 @@
       component: Login,
     },
     {
+    name: 'chat-detail',
+      path: '/(?<chatId>[1-9][0-9]*)',
+      component: Chat,
+    },
+    {
       name: 'chat',
       path: '/',
       component: Chat
