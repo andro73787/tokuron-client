@@ -10,7 +10,7 @@ let chatId = route.result.path.params ? route.result.path.params.chatId : null;
 
 function logout() { 
     authToken.remove(); 
-    goto ('/login');
+    goto('/login');
 }
 
 onMount(() => { 
@@ -19,45 +19,51 @@ onMount(() => {
     }
 });
 </script>
-<div>
-    <div class="container">
-        <div class="sidebar">
-            <ChatList chatId={chatId}/>
-            <div class="main">
-                {#if chatUd} 
-                <MessageList chatId={chatId}/>
-                {/if}
-            </div>
-            <button class="logout-button" onclick={logout}>
-                ログアウト
-            </button>
-        </div>
-    </div> 
+
+<div class="container">
+    <div class="sidebar">
+        <ChatList chatId={chatId}/>
+        <button class="logout-button" onclick={logout}>
+            ログアウト
+        </button>
+    </div>
+    <div class="main">
+        {#if chatId} 
+            <MessageList chatId={chatId}/>
+        {/if}
+    </div>
 </div>
+
 <style> 
 .container {  
     display: flex; 
     height:  100vh;
 } 
-.sidebar{
-    height:100vh;
+
+.sidebar {
+    height: 100vh;
     overflow-y: auto;
-    padding:0;
+    padding: 0;
     width: 160px;
+    background-color: #f8f8f8;
+    border-right: 1px solid #ddd;
 }
+
 .main { 
     height: 100vh;
     overflow-y: auto;
-    padding:0 10px; 
-    width: 540px;
+    padding: 0 10px; 
+    flex: 1; 
 }
-button{
+
+button {
     margin-top: 30px;
     width: 100%;
 } 
+
 button:hover { 
     background-color: #c84;
     border-color: #a40;
-    color : white;
+    color: white;
 }
 </style>
